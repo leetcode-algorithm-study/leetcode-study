@@ -1,7 +1,13 @@
 #include <iostream>
 #include <string>
-#include <unordered_map>
 using namespace std;
+
+/*
+How to approach?
+
+Brute-Force
+
+*/
 
 class Solution {
 public:
@@ -20,6 +26,8 @@ public:
         }
         for (i = 0; i < s.size(); i++)
         {
+
+            // Step 1. First loop. If there is the same character on both sides, count two more. else if it is the first iteration, just count one.
             curLen = 0;
             prev = i;
             next = i + 1;
@@ -50,7 +58,7 @@ public:
                     start = prev + 1;
                 }
             }
-
+            // Step 2. Second loop. it is the same condition as above except for the sequence order because of input like "ccc".
             curLen = 0;
             prev = i;
             next = i + 1;
@@ -91,6 +99,10 @@ int main()
 {
     string input = "ccc";
     Solution s;
-	cout << s.longestPalindrome(input);
-	return 0;
+    cout << s.longestPalindrome(input);
+    return 0;
 }
+/*
+Runtime: 48 ms, faster than 83.80 % of C++ online submissions for Longest Palindromic Substring.
+Memory Usage : 6.6 MB, less than 93.78 % of C++ online submissions for Longest Palindromic Substring.
+*/
