@@ -1,15 +1,7 @@
-#         Week#3 Problem List
--------------------------------------------------
-No.       Title
+###       Week#3 Problem List
 
-
-11        Container With Most Water
-
-
-15        3Sum
-
-
-17        Letter Combinations of a Phone Number
-
-
--------------------------------------------------
+| #  | Title  | Acceptance |
+| :------------ |:---------------:| -----:|
+| 11     | Container With Most Water | 50.8% |
+| 15      | 3Sum |   26.8% |
+| 17 | Letter Combinations of a Phone Number | 46.8% |
