@@ -41,12 +41,12 @@ public:
 					vector<int>res{ input[i],input[j],input[k] };
 					ans.push_back(res);
 					j++;
-					while (input[j - 1] == input[j])
+					while (j<k&&input[j - 1] == input[j])
 					{
 						j++;
 					}
 					k--;
-					while (input[k + 1] == input[k])
+					while (j<k&&input[k + 1] == input[k])
 					{
 						k--;
 					}
