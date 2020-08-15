@@ -5,7 +5,7 @@ public:
         {
             return INT_MAX;
         }
-		int dividend_local=dividend;
+	int dividend_local=dividend;
         int divisor_local = divisor;
 		int res= dividend_local/divisor_local;
         if(res>INT_MAX || res<INT_MIN)
