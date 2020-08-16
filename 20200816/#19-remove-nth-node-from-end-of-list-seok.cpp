@@ -1,11 +1,14 @@
-
-
 #include <iostream>
 #include <string>
 #include <vector>
 #include <algorithm>
 using namespace std;
 
+/*
+How to approach?
+첫번째 while 문을 통해 node의 depth를 구한 뒤
+nth node의 위치를 앞에서부터 파악하여, 해당 node를 제거해준다.
+*/
 
 
 struct ListNode {
@@ -68,3 +71,8 @@ int main()
 
 	return 0;
 }
+
+/*
+Runtime: 8 ms
+Memory Usage: 10.7 MB
+*/
