@@ -1,3 +1,11 @@
+/*
+How to approach
+
+행과 열에 동일한 숫자가 있는지 확인해주는 checkR, checkC를 각 행열마다 확인해주었으며, 3 x 3 board 안에서 동일한 숫자가 있는지 checkSub를 통해 9개의 sub board을 확인해주었다.
+board 자체가 9 x 9로 정해져있기 때문에, 시간복잡도에 대한 별다른 최적화를 해주진 않았다.
+
+*/
+
 class Solution {
 public:
 	vector<vector<char>> boardG;
