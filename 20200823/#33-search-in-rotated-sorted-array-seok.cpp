@@ -1,3 +1,8 @@
+/*
+How to approach
+주어진 리스트에 target값과 동일한 부분이 있으면 바로 return 해주었다.
+*/
+
 #include <iostream>
 #include <vector>
 
