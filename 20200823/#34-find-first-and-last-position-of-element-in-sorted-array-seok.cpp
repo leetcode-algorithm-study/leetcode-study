@@ -1,3 +1,10 @@
+/*
+How to approach
+
+Binary Search를 통해 target값을 확인해주었으며, 만일 target과 동일 값이 나오게 되는 상황에서 그 이전 index에 동일 값이 있는지 확인해준다.
+target값과 동일한 가장 앞선 index에 mid 값이 맞추어준 후, 동일한 값이 계속 나올때 까지 mid값을 +1씩 증가시켜주며 list에 추가해주었다.
+*/
+
 class Solution {
 public:
 	vector<int> searchRange(vector<int>& nums, int target) {
@@ -51,8 +58,6 @@ public:
 				{
 					break;
 				}
-
-				// to be added
 			}
 			else if (target < nums[mid])
 			{
