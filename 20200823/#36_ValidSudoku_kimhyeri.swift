@@ -10,11 +10,13 @@ import Foundation
 
 /// 36. Valid Sudoku
 
+// x,y좌표 구조체
 struct Position {
     var x: Int
     var y: Int
 }
 
+// Swift에서는 Queue를 따로 생성해줘야함
 struct Queue {
     private var queue = [Position]()
     
@@ -47,6 +49,7 @@ func isValidSudoku(_ board: [[Character]]) -> Bool {
         }
     }
     
+    // 가로 세로 일자로 쭉 검사
     for i in 0...8 {
         for j in 0...8 {
             validCheck(x: i, y: j)
@@ -61,6 +64,7 @@ func isValidSudoku(_ board: [[Character]]) -> Bool {
         dictionary.removeAll()
     }
     
+    // 해당 포지션에 대해서 BFS진행
     let search = [Position(x: 0, y: 0),
                   Position(x: 0, y: 3),
                   Position(x: 0, y: 6),

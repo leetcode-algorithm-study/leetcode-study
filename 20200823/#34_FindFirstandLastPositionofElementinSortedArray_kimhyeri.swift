@@ -19,16 +19,19 @@ func searchRange(_ nums: [Int], _ target: Int) -> [Int] {
         return [0,0]
     }
     
+    // 이진탐색으로 조회
     func binarySearch(array: [Int], start: Int, end: Int) {
         guard start <= end, array.count > 1 else {
             return
         }
         
+        // pivot 정함
         let middle = (start + end) / 2
         
-//        print("start:\(start), end:\(end), middle:\(middle)")
+        // target과 pivot이랑 동일한 값일 때
         if array[middle] == target {
             answerArray.append(middle)
+            // 동일한 숫자가 양옆에 있을 수 있기 때문에
             binarySearch(array: array, start: start, end: middle - 1)
             binarySearch(array: array, start: middle + 1, end: end)
         }
@@ -40,6 +43,7 @@ func searchRange(_ nums: [Int], _ target: Int) -> [Int] {
     }
     
     binarySearch(array: nums, start: 0, end: nums.count - 1)
+    // 마지막 정렬
     answerArray = answerArray.sorted()
     if let first = answerArray.first, let last = answerArray.last {
         answerArray = [first, last]
