@@ -46,49 +46,6 @@ print(groupAnagrams(["eat", "tea", "tan", "ate", "nat", "bat"]))
 print(groupAnagrams(["tea","and","ace","ad","eat","dans"]))
 // [["eat","tea"],["and"],["dans"],["ace"],["ad"]]
 
-
-/* 실패함
- func groupAnagrams(_ strs: [String]) -> [[String]] {
-     var answer = [[String]]()
-     var setList = [Set<Character>]()
-
-     var emptyList = [String]()
-     
-     for i in strs {
-         
-         let set: Set = Set(i)
-
-         if set.count == 0 {
-             emptyList.append("")
-         }
-         if !setList.contains(set) {
-             setList.append(set)
-         }
-     }
-     if emptyList.count != 0 {
-         answer.append(emptyList)
-     }
-
-     for i in setList {
-         var equalList = [String]()
-         
-         for j in 0..<strs.count {
-             let set: Set = Set(strs[j])
-             if i.subtracting(set).count == 0,
-                set.subtracting(i).count == 0,
-                i.count != 0 {
-                 equalList.append(strs[j])
-             }
-         }
-         if !equalList.isEmpty {
-             answer.append(equalList)
-         }
-     }
-     
-     return answer
- }
- */
-
 // Result
 // Runtime: 276 ms, faster than 33.49% of Swift online submissions for Group Anagrams.
 // Memory Usage: 22.2 MB, less than 99.07% of Swift online submissions for Group Anagrams.
