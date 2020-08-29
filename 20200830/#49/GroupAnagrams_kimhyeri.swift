@@ -47,5 +47,5 @@ print(groupAnagrams(["tea","and","ace","ad","eat","dans"]))
 // [["eat","tea"],["and"],["dans"],["ace"],["ad"]]
 
 // Result
-// Runtime: 276 ms, faster than 33.49% of Swift online submissions for Group Anagrams.
-// Memory Usage: 22.2 MB, less than 99.07% of Swift online submissions for Group Anagrams.
+// Runtime: 196 ms, faster than 81.86% of Swift online submissions for Group Anagrams.
+// Memory Usage: 22.3 MB, less than 95.70% of Swift online submissions for Group Anagrams.
