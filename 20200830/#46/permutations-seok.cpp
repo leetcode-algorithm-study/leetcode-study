@@ -13,7 +13,6 @@ public:
         {
             swap(nums[cnt], nums[i]);
             sol(cnt + 1,nums);
-            swap(nums[i], nums[cnt]);
         }
     }
 
@@ -23,6 +22,6 @@ public:
     }
 };
 /*
-Runtime: 4 ms
-Memory Usage: 8.6 MB
+Runtime: 4 ms, faster than 88.58% of C++ online submissions for Permutations.
+Memory Usage: 8.3 MB, less than 23.39% of C++ online submissions for Permutations.
 */
