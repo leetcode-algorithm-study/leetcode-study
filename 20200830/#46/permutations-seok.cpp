@@ -1,3 +1,10 @@
+/*
+How to approach?
+
+backtracking solution recursively swapping all the indexes.
+
+*/
+
 class Solution {
 public:
     vector<vector<int>> res;
