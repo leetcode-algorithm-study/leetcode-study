@@ -1,3 +1,16 @@
+/*
+How to approach?
+
+sort the string value → make the same key → the origin pushed to the map
+
+example)
+strs = {"eat","tea","tan","ate","nat","bat"};
+map<string, <vector<string>> =  { {"abt", { "bat"} },
+				  {"aet", { "eat", "tea", "ate" } },
+				  {"ant", { "tan", "nat" } }
+				};
+*/
+
 class Solution {
 public:
    	map<string, vector<string>> MyMap;
