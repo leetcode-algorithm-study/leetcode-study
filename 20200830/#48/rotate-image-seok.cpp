@@ -1,3 +1,11 @@
+/*
+How to approach?
+
+1  2  3   Step1  1  4  7  Step2  7  4  1
+4  5  6    →     2  5  8   →     8  5  2
+7  8  9          3  6  9         9  6  3
+
+*/
 class Solution {
 public:
 	void rotate(vector<vector<int>>& matrix) {
@@ -16,12 +24,6 @@ public:
 		}
 	}
 };
-
-/*
-1  2  3   Step1  1  4  7  Step2  7  4  1
-4  5  6    →     2  5  8   →     8  5  2
-7  8  9          3  6  9         9  6  3
-*/
 
 /*
 Runtime: 4 ms, faster than 67.52% of C++ online submissions for Rotate Image.
