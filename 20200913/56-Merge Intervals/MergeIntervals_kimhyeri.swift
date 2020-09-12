@@ -14,17 +14,22 @@ func merge(_ intervals: [[Int]]) -> [[Int]] {
     guard !intervals.isEmpty else { return [[Int]]() }
     
     var answer = [[Int]]()
-
     let sorted = intervals.sorted { $0[0] < $1[0] }
-    answer.append(sorted.first!)
 
+    // 비교 대상
+    var start = sorted.first![0]
+    var end = sorted.first![1]
+    answer.append([start, end])
+    
     for index in 1 ..< sorted.count {
-        let start = answer.last![0]
-        let end = answer.last![1]
+        if index > 1 {
+            start = answer.last![0]
+            end = answer.last![1]
+        }
         let nextS = sorted[index][0]
         let nextE = sorted[index][1]
 
-        // 겹치는 부분이 있을 떄
+        // 겹치는 부분이 있을 때
         if end >= nextS, end <= nextE {
             answer.removeLast()
             answer.append([start, nextE])
@@ -36,7 +41,8 @@ func merge(_ intervals: [[Int]]) -> [[Int]] {
     }
     return answer
 }
-//print(merge([[2,3],[4,5],[6,7],[8,9],[1,10]]))
+
+print(merge([[2,3],[4,5],[6,7],[8,9],[1,10]]))
 //Output: [[1,10]]
 
 print(merge([[1,4],[5,6]]))
