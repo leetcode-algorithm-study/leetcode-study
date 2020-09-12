@@ -13,7 +13,7 @@ import Foundation
 func uniquePaths(_ m: Int, _ n: Int) -> Int {
     var count = Array(repeating: Array(repeating: 0, count: m), count: n)
 
-    func dfs(x: Int, y: Int, count: inout [[Int]]) -> Int {
+    func dfs(x: Int, y: Int) -> Int {
         if x > n - 1 || y > m - 1 {
             return 0
         }
@@ -26,14 +26,13 @@ func uniquePaths(_ m: Int, _ n: Int) -> Int {
             return count[x][y]
         }
 
-        let pathCount = dfs(x: x + 1, y: y, count: &count) +
-            dfs(x: x, y: y + 1, count: &count)
-
+        let pathCount = dfs(x: x + 1, y: y) + dfs(x: x, y: y + 1)
         count[x][y] = pathCount
+        
         return pathCount
     }
 
-    return dfs(x: 0, y: 0,count: &count)
+    return dfs(x: 0, y: 0)
 }
 
 print(uniquePaths(23, 12))
