@@ -1,3 +1,9 @@
+/*
+How to approach?
+1. Find all the zero indexes and push them to the each queue.
+2. set 0 to the related each axis while popping the queue.
+*/
+
 class Solution {
 public:
 	vector<vector<int>> matrixs;
@@ -5,6 +11,7 @@ public:
 		queue<int> izero;
 		queue<int> jzero;
 		int i, j;
+		// Step 1. Find all the zero indexes.
 		for (i = 0; i < matrix.size(); i++)
 		{
 			for (j = 0; j < matrix[i].size(); j++)
@@ -16,6 +23,7 @@ public:
 				}
 			}
 		}
+		// While popping, set 0 to the related each axis.
 		while (!izero.empty())
 		{
 			i = izero.front();
