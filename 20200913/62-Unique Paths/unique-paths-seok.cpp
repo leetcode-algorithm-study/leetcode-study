@@ -1,3 +1,11 @@
+/*
+How to approach?
+Number of cases - Short distance path
+N x M - crossed 2D map 
+Assume that, a = N + M
+It goes on that, answer = aPa / ( N! * M! )
+*/
+
 class Solution {
 public:
 	int M, N;
