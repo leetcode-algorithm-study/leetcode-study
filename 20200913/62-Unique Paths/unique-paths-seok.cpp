@@ -9,9 +9,8 @@ It goes on that, answer = aPa / ( N! * M! )
 class Solution {
 public:
 	int M, N;
-	int Max,Min;
-	long sol(int a) {
-		if (a <= Max)
+	long Comb(int a, int maxValue) {
+		if (a <= maxValue)
 		{
 			return 1;
 		}
@@ -27,14 +26,15 @@ public:
 	int uniquePaths(int m, int n) {
 		M = m - 1;
 		N = n - 1;
-		Max = max(M, N);
-		Min = min(M, N);
+		int Max = max(M, N);
+		int Min = min(M, N);
 		//long res = factorial(M + N) / (factorial(M) * factorial(N));
-		return sol(M + N) / factorial(Min);
+		return Comb(M + N, Max) / factorial(Min);
+        // return factorial(M+N) / (factorial(M) * factorial(N));
+        // long long 
 	}
 };
 
 /*
 Runtime: 0 ms, faster than 100.00% of C++ online submissions for Unique Paths.
 Memory Usage: 5.9 MB, less than 89.01% of C++ online submissions for Unique Paths.
-*/
