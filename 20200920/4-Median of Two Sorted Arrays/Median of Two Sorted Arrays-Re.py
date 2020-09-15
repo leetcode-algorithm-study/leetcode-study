@@ -4,6 +4,7 @@ class Solution:
         h = []
         length=len(nums1)+len(nums2)
         result=0
+        
         #Step 1 - init heapq
         for num in nums1:
             heapq.heappush(h, (num, num))
