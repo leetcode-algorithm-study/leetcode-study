@@ -3,7 +3,7 @@ class Solution:
     def findMedianSortedArrays(self, nums1: List[int], nums2: List[int]) -> float:
         h = []
         length=len(nums1)+len(nums2)
-        
+        result=0
         #Step 1 - init heapq
         for num in nums1:
             heapq.heappush(h, (num, num))
@@ -11,7 +11,6 @@ class Solution:
             heapq.heappush(h, (num, num))
             
             
-        result=0
         #Step 2 - Distinguish even and odd numbers
         if length%2==0:
             for i in range(length//2-1):
