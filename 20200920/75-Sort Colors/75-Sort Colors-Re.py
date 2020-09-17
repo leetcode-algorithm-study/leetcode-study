@@ -3,13 +3,16 @@ class Solution:
         """
         Do not return anything, modify nums in-place instead.
         """
+        #Step 1 - Init dictionary 
         dic=dict()
         for i in range(3):
             dic[i]=0
             
+        #Step 2 - put nums into dic
         for num in nums:
             dic[num]+=1
         
+        #Step 3 - make final result
         color=0
         index=0
         for value in dic.values():
