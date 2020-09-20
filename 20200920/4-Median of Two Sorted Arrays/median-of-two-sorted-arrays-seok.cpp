@@ -11,7 +11,7 @@ public:
         double median = 0.0;
         
         
-        // Time Complexity O(m + nlogn)
+        /* ----- Time Complexity O(m + nlogn) -----*/
         /*
         ans = nums1;
         for (auto i : nums2)
@@ -22,7 +22,7 @@ public:
         */
         
         
-        //////////// Time Complexity O(m + nlogn) → O(n + m)
+        /* ----- Time Complexity O(n + m) ----- */
         int point1 = 0;
         int point2 = 0;
 
