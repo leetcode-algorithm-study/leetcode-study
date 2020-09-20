@@ -22,7 +22,7 @@ public:
         */
         
         
-        /* ----- Time Complexity O(n + m) ----- */
+        /* ----- Time Complexity O(log(n + m)) ----- */
         int point1 = 0;
         int point2 = 0;
 
