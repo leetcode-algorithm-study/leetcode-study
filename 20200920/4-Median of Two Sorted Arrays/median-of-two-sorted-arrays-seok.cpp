@@ -26,7 +26,10 @@ public:
         else median = (ans[n / 2] + ans[n / 2 - 1]) / 2.0;
 
         return median;
-
-
     }
 };
+
+/*
+Runtime: 76 ms, faster than 20.71% of C++ online submissions for Median of Two Sorted Arrays.
+Memory Usage: 89.7 MB, less than 21.67% of C++ online submissions for Median of Two Sorted Arrays.
+*/
