@@ -5,7 +5,7 @@ public:
         subsets.push_back({});
         for(auto& target : nums ) {
              for(int i = 0, count = subsets.size(); i < count; ++i) {
-                vector<int> subset = subsets[i];
+                auto subset = subsets[i];
                 subset.push_back(target);
                 subsets.push_back(subset);
             }
