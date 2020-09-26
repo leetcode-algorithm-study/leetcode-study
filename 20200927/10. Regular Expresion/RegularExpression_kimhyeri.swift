@@ -1,3 +1,5 @@
+import Foundation 
+
 func isMatch(_ s: String, _ p: String) -> Bool {
     let s = Array(s)
     let p = Array(p)
