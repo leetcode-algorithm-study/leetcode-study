@@ -11,35 +11,43 @@ import Foundation
 /// 91. Decode Ways
 
 func numDecodings(_ s: String) -> Int {
-    guard s.first != "0" else {
-        return 0
-    }
-    
-    guard s.count > 1 else {
-        return 1
-    }
     
     var store = Array(repeating: 0, count: s.count +  1)
 
-    if store[s.count] != 0 {
-        return store[s.count]
+    func decoding() -> Int {
+        guard s.first != "0" else {
+            return 0
+        }
+        
+        guard s.count > 1 else {
+            return 1
+        }
+        
+        var store = Array(repeating: 0, count: s.count +  1)
+
+        if store[s.count] != 0 {
+            return store[s.count]
+        }
+
+        let endIndex = s.index(s.startIndex, offsetBy: 1)
+        let firstTwo = Int(s[s.startIndex...endIndex])
+
+        let s1 = String(s.dropFirst())
+        let s2 = String(s1.dropFirst())
+
+        var total = 0
+        
+        if firstTwo! < 27 {
+            total = total + numDecodings(s2)
+        }
+
+        total = total + numDecodings(s1)
+        store[s.count] = total
+     
+        return total
     }
 
-    let endIndex = s.index(s.startIndex, offsetBy: 1)
-    let firstTwo = Int(s[s.startIndex...endIndex])
-
-    let s1 = String(s.dropFirst())
-    let s2 = String(s1.dropFirst())
-
-    var total = 0
-    
-    if firstTwo! < 27 {
-        total = total + numDecodings(s2)
-    }
-
-    total = total + numDecodings(s1)
-    store[s.count] = total
-    return total
+    return decoding()
 }
 
 print(numDecodings("4757562545844617494555774581341211511296816786586787755257741178599337186486723247528324612117156948"))
