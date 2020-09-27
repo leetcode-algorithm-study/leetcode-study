@@ -5,7 +5,10 @@ public:
 	{
 		if (pos >= str.size())
 		{
-			cnt++;
+			if (pos == str.size())
+			{
+				cnt++;
+			}
 			return;
 		}
 		string nextStr;
