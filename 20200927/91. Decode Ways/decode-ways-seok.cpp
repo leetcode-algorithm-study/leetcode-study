@@ -1,32 +1,31 @@
 class Solution {
 public:
 	int cnt = 0;
-	void dfs(string restStr)
+	void dfs(string str, int pos)
 	{
-		if (restStr == "")
+		if (pos >= str.size())
 		{
 			cnt++;
 			return;
 		}
 		string nextStr;
-		if (restStr[0] != '0')
+		if (str[pos] != '0')
 		{
-			nextStr = restStr.substr(1, restStr.size());
-			dfs(nextStr);
-		}
+			dfs(str,pos+1);
 
-		if (restStr.size() > 1 && restStr[0] != '0')
-		{
-			int maxCount = (restStr[0] - '0') * 10 + (restStr[1] - '0');
-			if (maxCount <= 26)
+			if (pos + 1 < str.size())
 			{
-				nextStr = restStr.substr(2, restStr.size());
-				dfs(nextStr);
+				int maxCount = (str[pos] - '0') * 10 + (str[pos+1] - '0');
+				if (maxCount <= 26)
+				{
+					dfs(str,pos+2);
+				}
 			}
 		}
+
 	}
 	int numDecodings(string s) {
-		dfs(s);
+		dfs(s,0);
 		return cnt;
 	}
 };
