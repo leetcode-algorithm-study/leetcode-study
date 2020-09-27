@@ -3,9 +3,9 @@ public:
 	vector<vector<char>> boardGlobal;
 	bool isTrue = false;
 	int dir[4][4] = { {-1,0},{0,-1},{0,1},{1,0} };
-	void dfs(int r, int c, string str, vector<vector<bool>> visit)
+	void dfs(int r, int c, string str, int currIdx, vector<vector<bool>> visit)
 	{
-		if (str == ""||isTrue==true)
+		if (currIdx>=str.size()||isTrue==true)
 		{
 			isTrue = true;
 			return;
@@ -20,22 +20,18 @@ public:
 			if (nextR >= 0 && nextC >= 0 && nextR < boardGlobal.size() && nextC < boardGlobal[0].size())
 			{
 				if (visit[nextR][nextC])	continue;
-				if (boardGlobal[nextR][nextC] == str[0])
+				if (boardGlobal[nextR][nextC] == str[currIdx])
 				{
-					string nextStr;
-					for (auto j = str.begin() + 1; j != str.end(); j++)
-					{
-						auto iter = *j;
-						nextStr += iter;
-					}
-					dfs(nextR, nextC, nextStr,visit);
+					dfs(nextR, nextC, str,currIdx+1,visit);
 				}
 			}
 		}
 	}
+
 	bool exist(vector<vector<char>>& board, string word) {
 		isTrue = false;
 		boardGlobal = board;
+		vector<vector<bool>> visit(200, vector<bool>(200, 0));
 		if (word == "")	return true;
 		for (auto i = 0; i < board.size(); i++)
 		{
@@ -43,14 +39,7 @@ public:
 			{
 				if (boardGlobal[i][j] == word[0])
 				{
-					vector<vector<bool>> visit(200, vector<bool>(200, 0));
-					string nextStr;
-					for (auto j = word.begin() + 1; j != word.end(); j++)
-					{
-						auto iter = *j;
-						nextStr += iter;
-					}
-					dfs(i, j, nextStr,visit);
+					dfs(i, j, word,1,visit);
 				}
 				if (isTrue)	return true;
 			}
