@@ -5,7 +5,7 @@ public:
 	int dir[4][4] = { {-1,0},{0,-1},{0,1},{1,0} };
 	void dfs(int r, int c, string str, int currIdx)
 	{
-		if (currIdx>=str.size()||isTrue==true)
+		if (currIdx >= str.size() || isTrue == true)
 		{
 			isTrue = true;
 			return;
@@ -20,8 +20,8 @@ public:
 				if (boardGlobal[nextR][nextC] == str[currIdx])
 				{
 					char prev = boardGlobal[nextR][nextC];
-					boardGlobal[nextR][nextC]='-';
-					dfs(nextR, nextC, str,currIdx+1);
+					boardGlobal[nextR][nextC] = '-';
+					dfs(nextR, nextC, str, currIdx + 1);
 					boardGlobal[nextR][nextC] = prev;
 				}
 			}
@@ -39,10 +39,10 @@ public:
 			{
 				if (boardGlobal[i][j] == word[0])
 				{
-                    char prev=boardGlobal[i][j];
-                    boardGlobal[i][j]='-';
-					dfs(i, j, word,1);
-                    boardGlobal[i][j]=prev;
+					char prev = boardGlobal[i][j];
+					boardGlobal[i][j] = '-';
+					dfs(i, j, word, 1);
+					boardGlobal[i][j] = prev;
 				}
 				if (isTrue)	return true;
 			}
@@ -50,3 +50,8 @@ public:
 		return isTrue;
 	}
 };
+
+/*
+Runtime: 88 ms, faster than 61.06% of C++ online submissions for Word Search.
+Memory Usage: 23.8 MB, less than 49.19% of C++ online submissions for Word Search.
+*/
