@@ -3,7 +3,7 @@ public:
 	vector<vector<char>> boardGlobal;
 	bool isTrue = false;
 	int dir[4][4] = { {-1,0},{0,-1},{0,1},{1,0} };
-	void dfs(int r, int c, string str, int currIdx, vector<vector<bool>> visit)
+	void dfs(int r, int c, string str, int currIdx)
 	{
 		if (currIdx>=str.size()||isTrue==true)
 		{
@@ -11,18 +11,18 @@ public:
 			return;
 		}
 
-		visit[r][c] = true;
-
 		for (int i = 0; i < 4; i++)
 		{
 			int nextR = r + dir[i][0];
 			int nextC = c + dir[i][1];
 			if (nextR >= 0 && nextC >= 0 && nextR < boardGlobal.size() && nextC < boardGlobal[0].size())
 			{
-				if (visit[nextR][nextC])	continue;
 				if (boardGlobal[nextR][nextC] == str[currIdx])
 				{
-					dfs(nextR, nextC, str,currIdx+1,visit);
+					char prev = boardGlobal[nextR][nextC];
+					boardGlobal[nextR][nextC]='-';
+					dfs(nextR, nextC, str,currIdx+1);
+					boardGlobal[nextR][nextC] = prev;
 				}
 			}
 		}
@@ -39,7 +39,10 @@ public:
 			{
 				if (boardGlobal[i][j] == word[0])
 				{
-					dfs(i, j, word,1,visit);
+                    char prev=boardGlobal[i][j];
+                    boardGlobal[i][j]='-';
+					dfs(i, j, word,1);
+                    boardGlobal[i][j]=prev;
 				}
 				if (isTrue)	return true;
 			}
