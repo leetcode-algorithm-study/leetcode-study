@@ -14,12 +14,14 @@ private:
 			else if (l2 == NULL)
 			{
 				res->next = l1;
-				l1 = l1->next;
+				//l1 = l1->next;
+				l1=NULL;
 			}
 			else if (l1->val > l2->val)
 			{
 				res->next = l2;
-				l2 = l2->next;
+				//l2 = l2->next;
+				l2=NULL;
 			}
 			else
 			{
