@@ -1,5 +1,5 @@
 class Solution {
-public:
+private:
 	bool validRecursive(TreeNode* root, long min, long max)
 	{
 		bool chk = true;
@@ -30,6 +30,7 @@ public:
 		}
 		return true;
 	}
+public:
 	bool isValidBST(TreeNode* root) {
 		return validRecursive(root, LONG_MIN, LONG_MAX);
 		//return validIterative(root);
