@@ -1,5 +1,5 @@
 class Solution {
-public:
+private:
 	ListNode* merge(ListNode* l1, ListNode* l2)
 	{
 		ListNode* res = new ListNode;
@@ -30,6 +30,7 @@ public:
 		}
 		return head->next;
 	}
+public:
 	ListNode* mergeKLists(vector<ListNode*>& lists) {
 		if (!lists.size())
 		{
