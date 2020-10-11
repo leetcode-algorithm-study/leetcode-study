@@ -32,11 +32,7 @@ class Solution:
                 return 0
         if rootTwo.val==root.val:
             if len(res)==0:
-                first=0
-                res=[]
                 return 1
             else:
-                first=0
-                res=[]
                 return 0
             
