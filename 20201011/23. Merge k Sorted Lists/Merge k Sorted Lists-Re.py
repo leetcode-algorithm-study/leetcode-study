@@ -9,10 +9,7 @@ class LinkedList:
         self.head = dummy
         self.tail = dummy
 
-        self.current = None
-        self.before = None
 
-        self.num_of_data = 0
         
     # append 메소드 (insert - 맨 뒤에 노드 추가, tail과 node의 next, 데이터 개수 변경)
     def append(self, data):
@@ -20,7 +17,6 @@ class LinkedList:
         self.tail.next = new_node
         self.tail = new_node
 
-        self.num_of_data += 1
         
         
         
@@ -53,5 +49,5 @@ class Solution:
                 leeRe.append(node[0])
         return leeRe.head.next
     
-# Runtime: 104 ms, faster than 82.46% of Python3 online submissions for Merge k Sorted Lists.
-# Memory Usage: 18.3 MB, less than 15.68% of Python3 online submissions for Merge k Sorted Lists.
+# Runtime: 92 ms, faster than 96.96% of Python3 online submissions for Merge k Sorted Lists.
+# Memory Usage: 18.4 MB, less than 11.97% of Python3 online submissions for Merge k Sorted Lists.
