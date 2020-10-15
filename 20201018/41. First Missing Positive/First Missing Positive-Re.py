@@ -11,7 +11,6 @@ class Solution:
                 return first
             else:
                 first+=1
-        print(first)
         return first
 
 # Runtime: 32 ms, faster than 83.63% of Python3 online submissions for First Missing Positive.
