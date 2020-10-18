@@ -14,20 +14,17 @@ func firstMissingPositive(_ nums: [Int]) -> Int {
     var answer = 1
     var dictionary = [Int: Int]()
     
-    for i in 0..<nums.count {
-        // key = 숫자
-        // value = 인덱스
-        dictionary.updateValue(i, forKey: nums[i])
+    nums.forEach {
+        dictionary.updateValue($0, forKey: $0)
     }
-    
-    for i in 1..<Int.max {
-        if dictionary[i] == nil {
-            answer = i
-            break
+
+    while true {
+        if dictionary[answer] == nil {
+            return answer
+        } else {
+            answer = answer + 1
         }
     }
-    
-    return answer
 }
 
 print(firstMissingPositive([1,2,0]))
