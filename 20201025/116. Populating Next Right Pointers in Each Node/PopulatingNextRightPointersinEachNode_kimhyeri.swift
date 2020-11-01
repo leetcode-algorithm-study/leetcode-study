@@ -38,15 +38,18 @@ func connect(_ root: Node?) -> Node? {
             for i in 0..<queue.count-1 {
                 queue[i].next = queue[i+1]
             }
+            // 아래로 내려갈수록 자식은 2배수
             level = level * 2
         }
         
         let node = queue.removeFirst()
         
+        // 왼쪽 노드가 존재하면 
         if let left = node.left {
             queue.append(left)
         }
         
+        // 오른쪽 노드가 존재하면
         if let right = node.right {
             queue.append(right)
         }
