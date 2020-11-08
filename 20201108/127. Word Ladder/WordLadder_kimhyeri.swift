@@ -15,21 +15,22 @@ func ladderLength(_ beginWord: String, _ endWord: String, _ wordList: [String]) 
         return 0
     }
     
+    let alphab = "abcdefghijklmnopqrstuvwxyz"
     var queue = [(beginWord, 1)]
-    var wordSet = Set<String>(wordList)
+    var setList = Set<String>(wordList)
     
     while !queue.isEmpty {
-        let (word, step) = queue.removeFirst()
+        let value = queue.removeFirst()
         
-        if word == endWord {
-            return step
+        if value.0 == endWord {
+            return value.1
         }
         
         // transform word
-        for i in 0..<word.count {
-            var wordArray = Array(word)
+        for i in 0..<value.0.count {
+            var wordArray = Array(value.0)
             
-            for char in "abcdefghijklmnopqrstuvwxyz" {
+            for char in alphab {
                 guard char != wordArray[i] else {
                     continue
                 }
@@ -37,14 +38,15 @@ func ladderLength(_ beginWord: String, _ endWord: String, _ wordList: [String]) 
                 wordArray[i] = char
                 let transformedWord = String(wordArray)
                 
-                guard wordSet.contains(transformedWord) else {
+                // 하나 바꾸고 wordSet에 있는지 확인
+                // (hit이면 , ait, bit, cit) (hit이면 hat, hbt,..)
+                
+                guard setList.contains(transformedWord) else {
                     continue
-                    // 하나 바꾸고 wordSet에 있는지 확인
-                    // (hit이면 , ait, bit, cit) (hit이면 hat, hbt,..)
                 }
                 
-                wordSet.remove(transformedWord) // transformword는 리스트에서 제거
-                queue.append((transformedWord, step + 1)) // step은 추가하고 transformword는 queue에 추가한다
+                setList.remove(transformedWord) // transformword는 리스트에서 제거
+                queue.append((transformedWord, value.1 + 1)) // value.1은 1추가하고 transformword는 queue에 추가한다
             }
         }
     }
