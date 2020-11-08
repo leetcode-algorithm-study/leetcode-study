@@ -4,7 +4,7 @@ Last executed input:
 "*bb*bb*****b******a**ab*bba****ba*a*a*aa*abb*baa*a**ba**b*ba**b**ba*ab**bb***a*ba*ab****ab**aab*bb*b"
 */
 class Solution {
-public:
+private:
 	bool isMatchWord(vector<vector<int>>& dp, string s, string p, int i, int j)
 	{
 		if (i == s.size() && j == p.size())
@@ -40,21 +40,11 @@ public:
 		}
 		if (p[j] == '*')
 		{
-			if (j == p.size() - 1)
-			{
-				return dp[i][j] = true;
-			}
-			else if (i == s.size() - 1)
-			{
-				return dp[i][j] = isMatchWord(dp, s, p, i, j + 1);
-			}
-			else
-			{
-				return dp[i][j] = (isMatchWord(dp, s, p, i + 1, j) || isMatchWord(dp, s, p, i, j + 1));
-			}
+			return dp[i][j] = (isMatchWord(dp, s, p, i + 1, j) || isMatchWord(dp, s, p, i, j + 1));
 		}
 		return dp[i][j] = false;
 	}
+public:
 	bool isMatch(string s, string p) {
 
 		vector<vector<int>> dp(s.size(), vector<int>(p.size(), -1));
