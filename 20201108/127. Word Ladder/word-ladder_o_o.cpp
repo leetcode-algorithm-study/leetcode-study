@@ -18,7 +18,6 @@ public:
         auto diffStrings = getOneDiffStrings( endWord, wordList );
         auto minRetVal = INT_MAX;
         for( auto& diffString : diffStrings ) {
-            cout<< diffString << "  " << endWord << endl;
             if( diffString.compare( beginWord ) == 0 ) return 1;
             wordList.erase( std::find (wordList.begin(), wordList.end(), diffString) );
             auto length = ladderLength2( beginWord, diffString, wordList );
