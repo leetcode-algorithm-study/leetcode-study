@@ -1,78 +1,54 @@
+// 265 / 266 test cases passed.
+
+
 class Solution {
 private:
-	void findStr(string s, string t, int idx, vector<string>& ansTable)
+	void findStr(string s, unordered_map<char, int> t_map, int idx, int& minStringSize, string& ans)
 	{
-		string ans = "";
 		int curr = idx;
-		vector<char>v;
-		bool startSet = false;
-		int startIdx;
 
-		for (int i = 0; i < t.size(); i++)
+		while (curr < s.size() && !t_map.empty())
 		{
-			v.push_back(t[i]);
-		}
-
-		while (curr < s.size() && !v.empty())
-		{
-
-			for (auto iter = v.begin(); iter != v.end();)
+			if (t_map.count(s[curr]))
 			{
-				char i = *iter;
-				if (s[curr] == i)
+				if (t_map[s[curr]] == 1)
 				{
-					if (!startSet)
-					{
-						startSet = true;
-						startIdx = curr;
-					}
-					iter = v.erase(iter);
-					break;
+					t_map.erase(s[curr]);
 				}
 				else
 				{
-					iter++;
+					t_map[s[curr]]--;
 				}
 			}
 			curr++;
 		}
 
-		if (!v.empty())
+		if (!t_map.empty())
 		{
 			return;
 		}
-
-		for (int i = startIdx; i < curr; i++)
+		if ((curr - idx) < minStringSize)
 		{
-			ans += s[i];
+			minStringSize = curr - idx;
+			ans = s.substr(idx, minStringSize);
 		}
-
-		ansTable.push_back(ans);
 	}
 public:
 	string minWindow(string s, string t)
 	{
-		string ans;
-		vector<string> v;
+		string ans = "";
+		unordered_map<char, int> t_map;
+		int minStringSize = INT_MAX;
+
+		for (int i = 0; i < t.size(); i++)
+		{
+			t_map[t[i]]++;
+		}
 		for (int i = 0; i < s.size(); i++)
 		{
-			for (int j = 0; j < t.size(); j++)
+			if (t_map.find(s[i]) != t_map.end())
 			{
-				if (s[i] == t[j])
-				{
-					findStr(s, t, i, v);
-					break;
-				}
-			}
-		}
-
-		int minSize = INT_MAX;
-		for (int i = 0; i < v.size(); i++)
-		{
-			if (v[i].size() < minSize)
-			{
-				minSize = v[i].size();
-				ans = v[i];
+				findStr(s, t_map, i, minStringSize, ans);
 			}
 		}
 
