@@ -4,8 +4,10 @@ class Solution:
         result=0
         for i in range(len(heights)):
             for j in range(i, len(heights)):
-                if result<(j-i+1)*min(heights[i:j+1]):
-                    result=(j-i+1)*min(heights[i:j+1])
+                row=j-i+1
+                col=heights[i:j+1]
+                if result<row*col:
+                    result=row*col
         return result
     
     
