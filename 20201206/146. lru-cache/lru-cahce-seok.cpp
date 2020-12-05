@@ -48,3 +48,5 @@ public:
 		capUsedCnt[key] = ++dateCapUsed;
 	}
 };
+//Runtime: 304 ms, faster than 10.13% of C++ online submissions for LRU Cache.
+//Memory Usage: 40.2 MB, less than 92.67% of C++ online submissions for LRU Cache.
