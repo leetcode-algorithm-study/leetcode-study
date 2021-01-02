@@ -38,5 +38,5 @@ class Solution:
                 now = 0
 
         return result
-    # Runtime: 76 ms, faster than 18.77% of Python3 online submissions for Longest Consecutive Sequence.
-    # Memory Usage: 15.4 MB, less than 42.95% of Python3 online submissions for Longest Consecutive Sequence.
+    # Runtime: 52 ms, faster than 82.79% of Python3 online submissions for Longest Consecutive Sequence.
+    # Memory Usage: 15.3 MB, less than 58.23% of Python3 online submissions for Longest Consecutive Sequence.
