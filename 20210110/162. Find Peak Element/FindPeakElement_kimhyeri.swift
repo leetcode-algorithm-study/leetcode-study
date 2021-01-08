@@ -16,10 +16,6 @@ func findPeakElement(_ nums: [Int]) -> Int {
     
     if nums.count == 1 {
         return index
-    } else if nums.count == 2 {
-        if nums[index] < nums[index + 1] {
-            return index + 1
-        }
     }
     
     for i in 1 ..< end {
