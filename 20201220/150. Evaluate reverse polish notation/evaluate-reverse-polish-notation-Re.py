@@ -1,6 +1,6 @@
 class Solution:
     def evalRPN(self, tokens: List[str]) -> int:
-        operator = ["+", "-", "*", "/"]
+        operator = {"+", "-", "*", "/"}
         stack = []
 
         for token in tokens:

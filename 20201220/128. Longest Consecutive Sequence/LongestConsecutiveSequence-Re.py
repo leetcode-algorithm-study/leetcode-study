@@ -28,7 +28,6 @@ class Solution:
         newNums = set(nums)
 
         now = 0
-
         for i in range(minValue, maxValue + 2):
             if i in newNums:
                 now += 1
@@ -36,7 +35,6 @@ class Solution:
                 if result < now:
                     result = now
                 now = 0
-
         return result
     # Runtime: 52 ms, faster than 82.79% of Python3 online submissions for Longest Consecutive Sequence.
     # Memory Usage: 15.3 MB, less than 58.23% of Python3 online submissions for Longest Consecutive Sequence.
