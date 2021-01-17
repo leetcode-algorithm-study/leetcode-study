@@ -1,11 +1,10 @@
 class Solution {
 public:
 	int findPeakElement(vector<int>& nums) {
-		int peak = INT_MIN;
 		int peak_idx = nums.size()-1;
 		int left = 0;
 		int right = left + 1;
-		while (left < right&&right<nums.size())
+		while (right<nums.size())
 		{
 			if (nums[left] > nums[right])
 			{
