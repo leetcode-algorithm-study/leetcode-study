@@ -5,28 +5,46 @@ def shorthead(sentence):
             s = sentence[0:i]
             count = int(x / i)
             if (s*count == sentence):
-                return '('+s+')'
-    return sentence
+                return ['('+s+')',0]
+    return [sentence,1]
 
-numerator=1
-denominator=6
+numerator=-50
+denominator=8
 i=0
-first=''
-string=''
+first=''        #3.
+string=''       #(2323)
+
 while i<10002:
     #몫과 나머지
-    quotient=numerator//denominator
+
+    quotient=numerator/denominator
     remainder=numerator%denominator
+    # if quotient<0:
+    #     quotient+=1
     if remainder==0:
         string+=str(quotient)
         break
     else:
-        if string=='':
+        if first=='':
             first+=str(quotient)+'.'
-        numerator*=10
+        numerator=(numerator-(denominator*quotient))*10
         string+=str(numerator//denominator)
         numerator=numerator%denominator
     if numerator==0:
         break
     i+=1
-print(first+shorthead(string))
+print(first)
+print(string)
+toggle=0
+
+for i in range(5000):
+    if shorthead(string[i:])[1]==0:
+        result=first + string[:i] +shorthead(string[i:])[0]
+        toggle=1
+        break
+
+if toggle==1:
+    print(result)
+else:
+    result=first + shorthead(string)[0]
+    print(result)
