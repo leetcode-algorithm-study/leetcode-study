@@ -22,17 +22,6 @@ class Trie(object):
         curr_node.data = string
         curr_node.dataNum +=1
 
-    def search(self, string):
-        curr_node = self.head
-
-        for char in string:
-            if char in curr_node.children:
-                curr_node = curr_node.children[char]
-            else:
-                return False
-
-        if (curr_node.data != None):
-            return True
 
 value=[9,8,7,6,5,4,3,2,1,0]
 nums = [3,30,34,5,9]
@@ -47,15 +36,17 @@ def largestNumber(nums):
         global result
         for val in value:
             if str(val) in address.children.keys():
-                dfs(address.children[str(val)])
+
                 if (address.children[str(val)].data!=None):
                     for i in range(address.children[str(val)].dataNum):
                         result+=address.children[str(val)].data
 
-                dfs(address.children[str(val)])
+                    dfs(address.children[str(val)])
+
 
     dfs(t.head)
     print(result)
+    return result
 
 
 largestNumber(nums)
