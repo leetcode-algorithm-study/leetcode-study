@@ -16,7 +16,7 @@ class Solution:
                     if j[0] == i[0]: 
                         slope = 'inf'
                     else:
-                        slope = float(j[1] - i[1]) / float(j[0] - i[0])
+                        slope = float(j[1] - i[1]) / float(j[0] - i[0])     #y/x
 
                     d[slope] = d.get(slope, 0) + 1      #d.get() : slope가 있으면 할당 or 없으면 0반환
                     cur_max = max(cur_max, d[slope])
