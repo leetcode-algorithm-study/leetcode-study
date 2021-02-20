@@ -1,23 +1,5 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
 class Solution {
 private:
-	void printMap(vector<vector<int>> numgrid)
-	{
-		cout << "================================\n";
-		for (int i = 0; i < numgrid.size(); i++)
-		{
-			for (int j = 0; j < numgrid[0].size(); j++)
-			{
-				cout << numgrid[i][j] << " ";
-			}
-			cout << '\n';
-		}
-		cout << "================================\n";
-	}
 	int dirR[4] = { 0, 0, 1, -1 };
 	int dirC[4] = { 1, -1, 0, 0 };
 	void giveNumber(vector<vector<char>> grid, vector<vector<int>>& numgrid, int r, int c, int mark)
@@ -39,7 +21,6 @@ private:
 				if (grid[nextR][nextC] == '1' && numgrid[nextR][nextC] == 0)
 				{
 					giveNumber(grid, numgrid, nextR, nextC, mark);
-					printMap(numgrid);
 				}
 			}
 		}
@@ -66,16 +47,4 @@ public:
 	}
 };
 
-
-int main()
-{
-	vector<vector<char>>grid = {
-		{'1','1','1','1','0'},
-		{'1','1','0','1','0'},
-		{'1','1','0','0','0'},
-		{'0','0','0','0','0'}
-	};
-	Solution s;
-	cout << s.numIslands(grid);
-	return 0;
-}
+//48 / 48 test cases passed, but took too long.
