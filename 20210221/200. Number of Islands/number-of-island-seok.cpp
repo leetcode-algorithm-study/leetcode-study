@@ -2,7 +2,7 @@ class Solution {
 private:
 	int dirR[4] = { 0, 0, 1, -1 };
 	int dirC[4] = { 1, -1, 0, 0 };
-	void giveNumber(vector<vector<char>> grid, vector<vector<int>>& numgrid, int r, int c, int mark)
+	void giveNumber(vector<vector<char>>& grid, vector<vector<int>>& numgrid, int r, int c, int mark)
 	{
 		if (numgrid[r][c] != 0)
 		{
