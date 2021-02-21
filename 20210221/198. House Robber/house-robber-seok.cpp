@@ -1,38 +1,17 @@
-#include <iostream>
-#include <vector>
-#include <algorithm>
-
-using namespace std;
-
 class Solution {
-private:
-	void makeMoney(vector<int>& nums, int idx, int sum, int &maxSum) {
-		if (idx >= nums.size())
-		{
-			maxSum = max(maxSum,sum);
-			return;
-		}
-
-		sum += nums[idx];
-
-		makeMoney(nums, idx + 2, sum, maxSum);
-		makeMoney(nums, idx + 3, sum, maxSum);
-	}
 public:
 	int rob(vector<int>& nums) {
-		int maxSum = INT_MIN;
+		int size = nums.size();
+        if (size==0)    return 0;
+        if (size==1)    return nums[0];
+		vector<int> dp(size);
+		dp[0] = nums[0];
+		dp[1] = max(nums[0], nums[1]);
+		for (int i = 0; i+2 < nums.size(); i++)
+		{
+			dp[i + 2] = max(dp[i] + nums[i + 2], dp[i+1]);
+		}
 
-		makeMoney(nums, 0, 0, maxSum);
-		makeMoney(nums, 1, 0, maxSum);
-		
-		return maxSum;
+		return dp[size - 1];
 	}
 };
-
-int main()
-{
-	vector<int> nums = {1,2,3,1};
-	Solution s;
-	cout<<s.rob(nums);
-	return 0;
-}
