@@ -21,7 +21,6 @@ class Trie(object):
         curr_node.data = string
 
     def dfs(self, row, col, address, visited, board):
-        # print(board[row][col], row, col)
         if board[row][col] in address.children:
             curr_node = address.children[board[row][col]]
             if curr_node.data != None:
@@ -41,7 +40,7 @@ board = [["o","a","a","n"],
          ["e","t","a","e"],
          ["i","h","k","r"],
          ["i","f","l","v"]]
-words = ["oath","pea","eat","rain","hklf", "hf"]
+words = ["oaa","oas","oass","oat","hklf", "hf"]
 result=set()
 
 
@@ -50,8 +49,13 @@ class Solution(object):
         global result
         t = Trie()
         result = set()
+
         for word in words:
             t.insert(word)
+        print(t.head.children)
+        print(t.head.children['o'].children)
+        print(t.head.children['o'].children['a'].children)
+        print(t.head.children['o'].children['a'].children['t'].children)
         for i in range(len(board)):
             for j in range(len(board[0])):
                 visit = [[0 for _ in range(len(board[0]))] for _ in range(len(board))]
