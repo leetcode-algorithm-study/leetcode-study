@@ -1,57 +1,43 @@
-// on solving
-
+//Runtime: 32 ms, faster than 83.81% of C++ online submissions for The Skyline Problem.
+//Memory Usage: 15.3 MB, less than 60.22% of C++ online submissions for The Skyline Problem.
+	
 class Solution {
 public:
 	vector<vector<int>> getSkyline(vector<vector<int>>& buildings) {
-		sort(buildings.begin(), buildings.end(), [](vector<int>a, vector<int>b) {return a[0] < b[0]; });
-		int front = buildings.front()[0];
-		int back = buildings.back()[1];
-		
-		vector<vector<int>> skyLine;
-		vector<int> topList(buildings.size());
-		int maxHeight;
-		bool checkedX = false;
-		int prev_i;
-		int prevHeight;
 
-		for (int x = front; x <= back; x++)
+		vector<vector<int>> skyLine;
+
+		vector<pair<int, int>> v;
+		
+		for (auto i: buildings)
 		{
-			for (int i = 0; i < buildings.size(); i++)
+			v.push_back({ i[0], -i[2] });
+			v.push_back({ i[1], i[2] });
+		}
+
+		sort(v.begin(), v.end());
+
+		multiset<int>m = {0};
+
+		int prev = 0;
+		int curr = 0;
+
+		for (auto i : v)
+		{
+			if (i.second < 0)
 			{
-				if (x < buildings[i][0])
-				{
-					break;
-				}
-				else if (x == buildings[i][0])
-				{
-					if (checkedX)
-					{
-						if (prevHeight == buildings[i][2])
-						{
-							skyLine.pop_back();
-							continue;
-						}
-					}
-					maxHeight = *max_element(topList.begin(),topList.end());
-					topList[i] = buildings[i][2];
-					if (buildings[i][2] > maxHeight)
-					{
-						skyLine.push_back(vector<int>{x,buildings[i][2]});
-					}
-				}
-				else if (x == buildings[i][1])
-				{
-					maxHeight = *max_element(topList.begin(), topList.end());
-					topList[i] = 0;
-					if (buildings[i][2] >= maxHeight)
-					{					
-						maxHeight = *max_element(topList.begin(), topList.end());
-						skyLine.push_back(vector<int>{x, maxHeight});
-						checkedX = true;
-						prev_i = i;
-						prevHeight = buildings[i][2];
-					}			
-				}
+				m.insert(-i.second);
+			}
+			else
+			{
+				m.erase(m.find(i.second));
+			}
+			curr = *m.rbegin();
+			if (prev != curr)
+			{
+                skyLine.push_back({ i.first, curr });
+				prev = curr;
+				
 			}
 		}
 
