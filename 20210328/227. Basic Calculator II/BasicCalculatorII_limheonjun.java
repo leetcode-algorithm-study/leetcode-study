@@ -5,7 +5,7 @@ class Solution {
 
         Stack<Character> stack = new Stack<>();
         int result = 0;
-        int temp = 0; 
+        int temp = 0;
         int first = 0;
         int second = 0;
 
@@ -17,35 +17,14 @@ class Solution {
         for(int i=0; i<len; i++) {
             if('0' <= s.charAt(i) && s.charAt(i) <= '9') {
                 stack.push(s.charAt(i));
-
             } else if(s.charAt(i) == '*' || s.charAt(i) == '/') {
 
-                if(stack.isEmpty() || isContinuous) {
+                if(isContinuous) {
                     first = temp;
                     temp = 0;
                 } else {
-
-                    while(!stack.isEmpty() && ('0' <= stack.peek() && stack.peek() <= '9')) {
-                        sb.append(stack.pop());
-                    }
-
-                    String str = sb.reverse().toString();
-                    if(str.length() == 0) first = 0;
-                    else first = Integer.parseInt(str);
-
-                    if(!stack.isEmpty() && stack.peek() == '-') {
-                        first = -first;
-                        stack.pop();
-                        if(!stack.isEmpty()) stack.push('+');
-                    }
-
-                    if(!stack.isEmpty() && stack.peek() == '+') {
-                        stack.pop();
-                    }
-
-                    sb.delete(0, sb.length());
+                    first = numFromStack(stack);
                 }
-
 
                 int j = i+1;
                 while(j < len && ('0' <= s.charAt(j) && s.charAt(j) <= '9')) {
@@ -71,30 +50,34 @@ class Solution {
         result += temp;
 
         while(!stack.isEmpty()) {
-            first = 0;
-
-            while(!stack.isEmpty() && ('0' <= stack.peek() && stack.peek() <= '9')) {
-                sb.append(stack.pop());
-            }
-
-            String str = sb.reverse().toString();
-            if(str.length() == 0) first = 0;
-            else first = Integer.parseInt(str);
-
-            if(!stack.isEmpty() && stack.peek() == '-') {
-                first = -first;
-                stack.pop();
-                if(!stack.isEmpty()) stack.push('+');
-            }
-
-            if(!stack.isEmpty() && stack.peek() == '+') {
-                stack.pop();
-            }
-
-            result += first;
-            sb.delete(0, sb.length());
+            result += numFromStack(stack);
         }
 
         return result;
+
+    }
+
+    private int numFromStack(Stack<Character> stack) {
+        StringBuffer sb = new StringBuffer();
+        int num = 0;
+
+        while(!stack.isEmpty() && ('0' <= stack.peek() && stack.peek() <= '9')) {
+            sb.append(stack.pop());
+        }
+
+        String str = sb.reverse().toString();
+        if(str.length() != 0) num = Integer.parseInt(str);
+
+        if(!stack.isEmpty() && stack.peek() == '-') {
+            num = -num;
+            stack.pop();
+            if(!stack.isEmpty()) stack.push('+');
+        }
+
+        if(!stack.isEmpty() && stack.peek() == '+') {
+            stack.pop();
+        }
+
+        return num;
     }
 }
