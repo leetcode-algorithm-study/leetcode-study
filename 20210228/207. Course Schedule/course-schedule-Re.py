@@ -27,8 +27,8 @@ class Solution(object):
         return True
 
 
-numCourses = 2
-prerequisites = [[1,0],[0,1]]
+numCourses = 5
+prerequisites = [[1,4],[2,4],[3,1],[3,2]]
 
 s=Solution()
 print(s.canFinish(numCourses, prerequisites))
