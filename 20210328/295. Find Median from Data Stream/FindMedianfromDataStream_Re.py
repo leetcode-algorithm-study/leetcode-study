@@ -1,3 +1,6 @@
+import null as null
+
+
 class MedianFinder(object):
 
     def __init__(self):
@@ -18,7 +21,7 @@ class MedianFinder(object):
         :rtype: float
         """
         if len(self.arr)==0:
-            return null
+            return None
         if len(self.arr)%2==0:
             return (self.arr[(len(self.arr)//2)-1]+self.arr[len(self.arr)//2])/2.0
         else:
