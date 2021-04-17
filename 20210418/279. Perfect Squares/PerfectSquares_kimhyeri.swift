@@ -4,10 +4,12 @@ class Solution {
         var square = [Int]()
         
         for i in 1...n {
-            if i * i > n {
+            let double = i * i
+            if double > n {
                 break
+            } else {
+                square.append(double)
             }
-            square.append(i*i)
         }
 
         print(square)
