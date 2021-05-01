@@ -1,3 +1,6 @@
+//Runtime: 1272 ms, faster than 5.08% of C++ online submissions for Longest Increasing Path in a Matrix.
+//Memory Usage: 16.2 MB, less than 41.82% of C++ online submissions for Longest Increasing Path in a Matrix.
+
 class Solution {
 private:
 	int rSize;
