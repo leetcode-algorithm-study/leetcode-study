@@ -38,35 +38,35 @@ class Solution {
             if(isLiveCell(nextM, nextN)) liveCells++;
         }
 
-        if(isSatisfyFirstCondition(m, n, liveCells)) nextBoard[m][n] = DEAD_CELL;
-        else if(isSatisfySecondCondition(m, n, liveCells)) nextBoard[m][n] = LIVE_CELL;
-        else if(isSatisfyThirdCondition(m, n, liveCells)) nextBoard[m][n] = DEAD_CELL;
-        else if(isSatisfyForthCondition(m, n, liveCells)) nextBoard[m][n] = LIVE_CELL;
+        if(satisfyFirstCondition(m, n, liveCells)) nextBoard[m][n] = DEAD_CELL;
+        else if(satisfySecondCondition(m, n, liveCells)) nextBoard[m][n] = LIVE_CELL;
+        else if(satisfyThirdCondition(m, n, liveCells)) nextBoard[m][n] = DEAD_CELL;
+        else if(satisfyForthCondition(m, n, liveCells)) nextBoard[m][n] = LIVE_CELL;
     }
     
     //1. 2개 미만의 live neighbors갖고 있는 live cell은 사망한다
-    private boolean isSatisfyFirstCondition(int m, int n, int liveCells) {
+    private boolean satisfyFirstCondition(int m, int n, int liveCells) {
         if(!isLiveCell(m, n)) return false;
         if(2 <= liveCells) return false;
         return true;
     }
     
     //2. 2개나 3개의 live neighbors갖고 있는 live cell은 살아남는다
-    private boolean isSatisfySecondCondition(int m, int n, int liveCells) {
+    private boolean satisfySecondCondition(int m, int n, int liveCells) {
         if(!isLiveCell(m, n)) return false;
         if(liveCells != 2 && 3 != liveCells) return false;
         return true;
     }
     
     //3. 3개 이상의 live neighbors갖고 있는 live cell은 사망한다
-    private boolean isSatisfyThirdCondition(int m, int n, int liveCells) {
+    private boolean satisfyThirdCondition(int m, int n, int liveCells) {
         if(!isLiveCell(m, n)) return false;
         if(liveCells < 3) return false;
         return true;
     }
 
     //4. 정확히 3개의 live neighbors갖고 있는 dead cell은 살아난다
-    private boolean isSatisfyForthCondition(int m, int n, int liveCells) {
+    private boolean satisfyForthCondition(int m, int n, int liveCells) {
         if(isLiveCell(m, n)) return false;
         if(liveCells != 3) return false;
         return true;
