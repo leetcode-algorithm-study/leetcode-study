@@ -1,5 +1,5 @@
-//Runtime: 56 ms, faster than 15.91 % of C++ online submissions for Game of Life.
-//Memory Usage : 6.8 MB, less than 81.20 % of C++ online submissions for Game of Life.
+//Runtime: 0 ms, faster than 100.00% of C++ online submissions for Game of Life.
+//Memory Usage: 7 MB, less than 50.57% of C++ online submissions for Game of Life.
 
 class Solution {
 private:
