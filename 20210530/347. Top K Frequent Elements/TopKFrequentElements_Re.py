@@ -1,19 +1,21 @@
-import heapq
-
-
 class Solution(object):
-    def kthSmallest(self, matrix, k):
+    def topKFrequent(self, nums, k):
+        res = []
+        dic = dict()
 
-        heap = []
-        n = len(matrix)
-        for i in range(n):
-            for j in range(n):
-                heapq.heappush(heap, matrix[i][j])
+        for i in range(-100001, 100001):
+            dic[i] = 0
 
-        res = 0
+        for num in nums:
+            dic[num] += 1
+
+        sdict = sorted(dic.items(), reverse=True, key=lambda item: item[1])
+        # print(sdict)
         for i in range(k):
-            res = heapq.heappop(heap)
+            res.append(sdict[i][0])
+
+        res.sort()
         return res
 
-# Runtime: 300 ms, faster than 13.55% of Python online submissions for Kth Smallest Element in a Sorted Matrix.
-# Memory Usage: 19.3 MB, less than 34.05% of Python online submissions for Kth Smallest Element in a Sorted Matrix.
+# Runtime: 1760 ms, faster than 5.04% of Python online submissions for Top K Frequent Elements.
+# Memory Usage: 65.9 MB, less than 5.27% of Python online submissions for Top K Frequent Elements.
