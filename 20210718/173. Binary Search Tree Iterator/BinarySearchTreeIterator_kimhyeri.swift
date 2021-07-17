@@ -35,7 +35,7 @@ class BSTIterator {
     }
     
     func hasNext() -> Bool {
-        return traversal.count > 0
+        return !traversal.isEmpty
     }
     
     private func inorderTraversal(_ root: TreeNode?) -> [Int] {
