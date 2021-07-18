@@ -6,7 +6,6 @@
 //
 
 import Foundation
-
 /**
  * Definition for a binary tree node.
  * public class TreeNode {
@@ -27,7 +26,7 @@ class BSTIterator {
     var traversal = [Int]()
     
     init(_ root: TreeNode?) {
-        traversal = inorderTraversal(root)
+        inorderTraversal(root)
     }
     
     func next() -> Int {
@@ -38,16 +37,23 @@ class BSTIterator {
         return !traversal.isEmpty
     }
     
-    private func inorderTraversal(_ root: TreeNode?) -> [Int] {
-        guard let node = root else { return [] }
+    func inorderTraversal(_ root: TreeNode?) {
+        guard let node = root else { return }
+
+        if node.left == nil, node.right == nil {
+            traversal.append(node.val)
+            return
+        }
+
+        if let leftNode = node.left {
+            inorderTraversal(leftNode)
+        }
         
-        var result = [Int]()
-        
-        result = result + inorderTraversal(node.left)
-        result.append(node.val)
-        result = result + inorderTraversal(node.right)
-        
-        return result
+        traversal.append(node.val)
+
+        if let rightNode = node.right {
+            inorderTraversal(rightNode)
+        }
     }
 }
 
