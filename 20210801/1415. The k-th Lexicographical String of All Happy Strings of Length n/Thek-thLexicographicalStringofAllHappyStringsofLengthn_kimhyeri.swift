@@ -13,7 +13,7 @@ class Solution {
         var letters = ["a", "b", "c"]
         var answer = [String]()
         
-        func dfs(_ temp: String, _ n: Int) {
+        func dfs(_ temp: String) {
             if temp.count == n {
                 answer.append(temp)
                 return
@@ -21,18 +21,18 @@ class Solution {
                 for i in 0..<letters.count {
                     if temp.count == 0 {
                         var cur = temp + letters[i]
-                        dfs(cur, n)
+                        dfs(cur)
                     } else {
                         var char = letters[i]
                         if char != String(temp.last!) {
                             var cur = temp + char
-                            dfs(cur, n)
+                            dfs(cur)
                         }
                     }
                 }
             }
         }
-        dfs(temp, n)
+        dfs(temp)
         
         if answer.count < k {
             return ""
