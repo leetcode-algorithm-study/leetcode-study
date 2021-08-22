@@ -5,7 +5,7 @@ public class Solution_686 {
         StringBuilder str=new StringBuilder();
         int count=0;
 
-        while(str.toString().length() < a.length()+b.length() ){
+        while(str.toString().length() < 2*a.length()+b.length() ){
             if(str.toString().contains(b))
                 return count;
             str.append(a);
