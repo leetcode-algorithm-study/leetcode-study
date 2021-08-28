@@ -381,3 +381,4 @@ MigrationBackup/
 .ionide/
 
 # End of https://www.toptal.com/developers/gitignore/api/c++,python,swift,xcode,visualstudiocode,visualstudio
+.DS_Store
