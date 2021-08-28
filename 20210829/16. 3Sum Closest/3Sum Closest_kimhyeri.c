@@ -47,3 +47,11 @@ int threeSumClosest(int* nums, int numsSize, int target) {
     
     return result;
 }
+
+// two pointer 쓸려면 첫 번째 for loop를 제외한
+// j,k루프에서 for loop대신 j = i + 1, k = numsSize - 1로 가져가면 된다.
+// i를 제외하고 나머지 pointer로 gap을 비교하고 sum에 넣어주는 방식으로 가면 된다.
+// while조건문은 j > k 여야하고 gap이 작으면 sum에 넣어주고 result = res넣고
+// gap이 0보다 작으면 j를 올려주고 0보다 크면 k를 올려주고
+// (위가 가능한게 처음에 qsort써서 ㄱㅊ)
+
