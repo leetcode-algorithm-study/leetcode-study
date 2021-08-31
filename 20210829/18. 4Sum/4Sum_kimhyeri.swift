@@ -27,6 +27,7 @@ class Solution {
                     if sum == target {
                         answer.insert([nums[i],nums[j],nums[k],nums[o]])
                         k = k + 1
+                        o = o - 1
                     } else if sum > target {
                         o = o - 1
                     } else {
