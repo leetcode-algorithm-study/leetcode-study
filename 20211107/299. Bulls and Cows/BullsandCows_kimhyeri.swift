@@ -28,13 +28,7 @@ class Solution {
         }
 
         for i in dict {
-            b = b + i.value
-
-            if i.value > 0, guess.filter({String($0) == i.key}).count > 1 {
-                b = b + 1
-            } else {
-                b = b + i.value
-            }
+            b = b + min(i.value, tempS.filter({ $0 == i.key}).count)
         }
 
         return "\(a)A\(b)B"
@@ -52,3 +46,5 @@ print(getHint("1123", "0111"))
 print(getHint("1807", "7810"))
 //1A3B
 
+// 퍼포먼스 구림
+// dict 하나 더 생성하면 ㄱㅊ 
