@@ -71,7 +71,7 @@
  * sentence를 공백제외 단어 배열로 만들기 => m
  * word를 구성하는 단어 중 가장 짧은 단어 찾기 => m * l
  * join => m
- * O(n*l + m + m*l + m) => O(n + 3m) => O(n + m)
+ * O(n*l + m + m*l + m) => O(l(n+m) + 2m)
  */
 class Solution {
     public String replaceWords(List<String> dictionary, String sentence) {
