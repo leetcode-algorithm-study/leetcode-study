@@ -1,18 +1,19 @@
 /**
- * prefix로 시작하는 key의 value를 모두 더한 값을 반환하기
- * 
- * insert
- * - 동일한 키가 존재하는 경우 해당 키를 삭제하고 다시 insert
- * 
- * sum
- * - map의 key를 순회하며 prefix로 시작하는 키가 있는지 찾고 값을 합산하여 반환
- *
- * 시간복잡도
- * 문자열의 개수 n
- * insert => 1 // 모든 문자열 insert => n
- * sum => n
- * O(2n) => O(n)
- */
+prefix가 존재하면, prefix에 해당하는 모든 단어의 값의 합을 반환
+
+1. insert를 통해 key와 value를 할당
+2. sum의 인자가 map의 key의 prefix라면 합을 계산
+
+시간복잡도
+insert할 key와 value데이터 : n
+sum의 호출 횟수 : m
+
+insert => m
+sum => prefix가 apple, appl, app, ap, a일때 insert한 데이터가 모두 applea, appleb, applec, applec, apple... 인 경우
+mn
+
+O(m+nm)
+*/
 class MapSum {
 
     private Map<String, Integer> map = new HashMap<>();
@@ -22,7 +23,6 @@ class MapSum {
 	}
 
 	public void insert(String key, int val) {
-        if(map.containsKey(key)) map.remove(key);
 		map.put(key, val);
 	}
 
