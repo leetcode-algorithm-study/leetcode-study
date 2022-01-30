@@ -1,30 +1,22 @@
 class Solution {
     func maxRotateFunction(_ nums: [Int]) -> Int {
-        var sumList = [Int]()
-        
         var sum = 0
         var k = 0
-        var nums = nums
-        var count = nums.count
-        
-        while count > 0 {
-            sum = 0
-            k = 0
+        var temp = 0
+        var ans = 0
 
-            for i in nums {
-                sum = sum + (i * k)
-                print(sum)
-                k = k + 1
-            }
-            
-            sumList.append(sum)
-            count = count - 1
-            
-            let val = nums.removeFirst()
-            nums.append(val)
+        for i in 0..<nums.count {
+            temp = temp + i * nums[i]
+            sum = sum + nums[i]
         }
+
+        ans = temp
         
-        sumList.sort()
-        return sumList.removeLast()
+        for i in 1..<nums.count {
+            temp = temp + sum - nums.count * nums[nums.count - i]
+            ans = max(temp, ans)
+        }
+
+        return ans
     }
 }
