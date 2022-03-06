@@ -3,18 +3,17 @@ class Solution {
         guard s.count > 10 else { return [] }
         
         var dict = [String : Int]()
-        var answer = [String]()
+        var answer: Set<String> = Set<String>()
         
         let s = Array(s)
         
         for i in 0..<s.count - 9{
-            if let value = dict[String(s[i..<i+10])], value == 1 {
-                answer.append(String(s[i..<i+10]))
-                dict[String(s[i..<i+10])]! = value + 1
-            } else if dict[String(s[i..<i+10])] == nil {
+            if let value = dict[String(s[i..<i+10])] {
+                answer.insert(String(s[i..<i+10]))
+            } else {
                dict[String(s[i..<i+10])] = 1
             }
         }
-        return answer
+        return Array(answer)
     }
 }
