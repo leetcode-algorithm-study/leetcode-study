@@ -23,6 +23,24 @@ class Solution {
 
         return dfs(n)
     }
+    
+//    func integerBreak(_ n: Int) -> Int {
+//        var dp = [1:1]
+//
+//        for num in 2...n {
+//            if num != n {
+//                dp[num] = num
+//            } else {
+//                dp[num] = 0
+//            }
+//            
+//            for i in 1..<num {
+//                let val = dp[i]! * dp[num - i]!
+//                dp[num] = max(dp[num]!, val)
+//            }
+//        }
+//        return dp[n]!
+//    }
 }
 
 // resource: https://www.youtube.com/watch?v=in6QbUPMJ3I
