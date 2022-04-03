@@ -4,7 +4,7 @@ class Solution {
             
         for i in 0..<words.count {
             for j in 0..<words.count {
-                if words[i] != words[j], words[i].contains(words[j]), !answer.contains(words[j]) {
+                if i != j, words[i].contains(words[j]), !answer.contains(words[j]) {
                     answer.append(words[j])
                 }
             }
