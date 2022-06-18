@@ -1,5 +1,35 @@
 class Solution {
     func countArrangement(_ n: Int) -> Int {
+        var count = 0
+        var visited = Array(repeating: false, count: n+1)
+
+        func permutation(new: Int) {
+            if new > n {
+                count = count + 1
+                return
+            } else {
+                for i in 1...n {
+                    if visited[i] {
+                        continue
+                    }
+                    else if (new % i == 0 || i % new == 0) {
+                        visited[i] = true
+                        permutation(new: new+1)
+                        visited[i] = false
+                    }
+                }
+            }
+        }
+
+        permutation(new: 1)
+
+        return count
+    }
+}
+
+// TLE
+class Solution {
+    func countArrangement(_ n: Int) -> Int {
         let arr = Array(1...n)
         var permute = [[Int]]()
         var visited = Array(repeating: false, count: arr.count)
