@@ -1,3 +1,41 @@
+class Solution {
+    func countArrangement(_ n: Int) -> Int {
+        let arr = Array(1...n)
+        var permute = [[Int]]()
+        var visited = Array(repeating: false, count: arr.count)
+
+        func permutation(new: [Int]) {
+            if new.count == arr.count {
+                var okay = true
+                for i in 1...new.count {
+                    if !(new[i-1] % i == 0 || i % new[i-1] == 0) {
+                        okay = false
+                        break
+                    }
+                }
+                if okay {
+                    permute.append(Array(new))
+                }
+                return
+            } else {
+                for i in 0..<arr.count {
+                    if visited[i] {
+                        continue
+                    } else {
+                        visited[i] = true
+                        permutation(new: new + [arr[i]])
+                        visited[i] = false
+                    }
+                }
+            }
+        }
+
+        permutation(new: [])
+        
+        return permute.count
+    }
+}
+
 // TLE
 class Solution {
     func countArrangement(_ n: Int) -> Int {
