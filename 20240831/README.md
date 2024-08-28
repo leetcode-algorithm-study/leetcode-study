@@ -1,7 +1,7 @@
-### Week#89
+### Week#90
 
 | # | Title | Acceptance | Difficulty
 | :------------ |:---------------:| :-----:| -----:|
-| [242](https://leetcode.com/problems/valid-anagram/) | Longest Substring Without Repeating Characters | 65.2% | Easy |
-| [49](https://leetcode.com/problems/group-anagrams/) | Longest Repeating Character Replacement | 69.2% | Medium |
-| [20](https://leetcode.com/problems/valid-parentheses/) | Minimum Window Substring | 40.9% | Easy |
+| [242](https://leetcode.com/problems/valid-anagram/) | Valid Anagram | 65.2% | Easy |
+| [49](https://leetcode.com/problems/group-anagrams/) | Group Anagrams | 69.2% | Medium |
+| [20](https://leetcode.com/problems/valid-parentheses/) | Valid Parentheses | 40.9% | Easy |
