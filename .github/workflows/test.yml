@@ -7,7 +7,7 @@ on:
       - master
 
 jobs:
-  test:
+  test2:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
