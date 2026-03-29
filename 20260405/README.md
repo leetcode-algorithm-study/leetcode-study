@@ -2,8 +2,7 @@
 
 | #                                                                                                           | Title | Acceptance | Difficulty
 |:------------------------------------------------------------------------------------------------------------|:---------------:|:----------:|-----------:|
-| [92](https://leetcode.com/problems/reverse-linked-list-ii/) | Reverse Linked List II | % | Medium |
-| [80](https://leetcode.com/problems/remove-duplicates-from-sorted-array-ii/description/) | Remove Duplicates from Sorted Array II | % | Medium |
-| [69](https://leetcode.com/problems/sqrtx/) | Sqrt(x) | % | Easy |
-
+| [2511](https://leetcode.com/problems/maximum-enemy-forts-that-can-be-captured/) | Maximum Enemy Forts That Can Be Captured | % | Easy |
+| [971](https://leetcode.com/problems/flip-binary-tree-to-match-preorder-traversal/) | Flip Binary Tree To Match Preorder Traversal | % | Medium |
+| [339](https://leetcode.com/problems/nested-list-weight-sum/) | Nested List Weight Sum | % | Medium |
 
