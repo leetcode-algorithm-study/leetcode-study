@@ -53,6 +53,7 @@ def fetch_leetcode_problems():
           titleSlug
           difficulty
           acRate
+          isPaidOnly
         }
       }
     }
@@ -106,6 +107,7 @@ def pick_problems(questions, used_ids, count=3):
         if q["difficulty"] in ("Easy", "Medium")
         and int(q["frontendQuestionId"]) not in used_ids
         and q["frontendQuestionId"].isdigit()
+        and not q["isPaidOnly"]
     ]
     if len(candidates) < count:
         count = len(candidates)
